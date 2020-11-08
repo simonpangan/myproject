@@ -21,7 +21,7 @@ class EventsController extends Controller
     public function index()
     {
   
-    $usergetevents = User::find(1)->events()->get();
+    $usergetevents = User::find(Auth::user()->id)->events()->get();
 
     $allid = array();
     foreach ($usergetevents as $value) {

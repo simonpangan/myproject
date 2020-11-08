@@ -34,7 +34,15 @@ class AdminController extends Controller
     public function feedback($id)
     {
         $feedbacks = Posts::find($id)->postfeedbacks;
-        $post = Feedback::find($id)->eventpost;   
+
+        
+        if(!isset(Feedback::find($id)->eventpost)){
+            $post = null;
+        }else{
+            $post = Feedback::find($id)->eventpost;
+        }
+     
+
         return view('feedbacks', compact('feedbacks','post'));
     }
 

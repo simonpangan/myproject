@@ -5,19 +5,23 @@
     
                 <div class="row">
     <div class="col-sm-12">
+       
+
+ 
+
+        @if($post != null)
         <div class="full-right">
             <h2>{{$post->eventname}}</h2>
         </div>
-    </div>
-    </div>
-
-    <table class="table table-bordered">
-        <tr>
-            <th with="80">Feedback ID</th>
-            <th>Feedback</th>
-        </tr>
+      </div>
+     </div>
  
-        @foreach($feedbacks as $row)
+        <table class="table table-bordered">
+            <tr>
+                <th with="80">Feedback ID</th>
+                <th>Feedback</th>
+            </tr>
+          @foreach($feedbacks as $row)
                 <tr>
                     <!--<td><img src="{{ URL::to('/')}}images/{{ $row->images}}" class="img-thumbnail" width="75" /></td>-->
                     <td>{{ $row->feedbackid }}</td>
@@ -26,5 +30,15 @@
                 </tr>
 
             @endforeach
+
+          @else
+
+            <center> No Feedbacks </center>
+
+        @endif
+
+      
+
+
 </div>  
 @endsection
